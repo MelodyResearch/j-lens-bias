@@ -37,9 +37,10 @@ def test_hosted_gpu_verification_comes_first(nb):
     assert "local runtime" in first.lower()
 
 
-def test_exact_commit_placeholder_and_clone(nb):
+def test_exact_commit_pin_and_clone(nb):
     t = all_text(nb)
-    assert t.count('CODE_COMMIT = "__RQ4_CODE_COMMIT__"') == 1
+    assert t.count('CODE_COMMIT = "28fdda141ce139018e9d5a290fa784378b760aa3"') == 1
+    assert "__RQ4_CODE_COMMIT__" not in t
     assert "https://github.com/MelodyResearch/j-lens-bias.git" in t
     assert "git\", \"checkout\", \"--detach\", CODE_COMMIT" in t and "rev-parse" in t
     assert 'os.environ["RQ4_CODE_COMMIT"] = CODE_COMMIT' in t
