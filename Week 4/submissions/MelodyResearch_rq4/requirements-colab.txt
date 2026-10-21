@@ -1,0 +1,12 @@
+# Pinned remote (Colab, Python 3.12, Linux CUDA) dependencies for RQ4 inference. Versions are those of the
+# independent Stage 0 run recorded in EXECUTION_STATUS.md; jlens is the exact source commit recorded there.
+torch==2.14.1
+transformers==5.20.2
+tokenizers==0.23.3
+safetensors==0.8.0
+huggingface_hub==2.2.0
+numpy==2.5.4
+pandas==3.0.6
+matplotlib==3.11.2
+pytest==9.1.1
+jlens @ git+https://github.com/anthropics/jacobian-lens.git@581d398613e5602a5af361e1c34d3a92ea82ba8e

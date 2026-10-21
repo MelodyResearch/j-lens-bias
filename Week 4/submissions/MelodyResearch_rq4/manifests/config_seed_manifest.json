@@ -1,0 +1,109 @@
+{
+  "arms": [
+    "clean",
+    "target",
+    "random_s11",
+    "random_s23",
+    "random_s47",
+    "sham"
+  ],
+  "bootstrap": {
+    "n": 2000,
+    "resampling_unit": "base item",
+    "seed": 20261020
+  },
+  "config": {
+    "alpha": 1.0,
+    "base_items": [
+      "age_01_qi1",
+      "age_02_qi2",
+      "age_03_qi3",
+      "age_04_qi4",
+      "age_05_qi5",
+      "age_06_qi9",
+      "age_07_qi13",
+      "age_08_qi16",
+      "age_09_qi19",
+      "age_10_qi22"
+    ],
+    "cap": 0.1,
+    "formats": [
+      "multiple_choice",
+      "open_ended"
+    ],
+    "layers": [
+      8,
+      16,
+      22
+    ],
+    "lens": [
+      "neuronpedia/jacobian-lens",
+      "16a01f309fcec900fdcec3f4cd5b64f3d00e4d5a",
+      "qwen3.5-0.8b/jlens/Salesforce-wikitext/Qwen3.5-0.8B_jacobian_lens.pt"
+    ],
+    "lens_sha256": "aa26b68ed73cf903280dbd8d1806f4ed8580aad205f396a5c997ee19259c9b48",
+    "lens_tag": "qwen-n1000",
+    "max_new_tokens": 24,
+    "mc_candidate_format": " ({letter})",
+    "model": "Qwen/Qwen3.5-0.8B",
+    "model_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "model_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696",
+    "open_candidate_format": " {answer_text}",
+    "parser_version": "rq4-parsers-v1",
+    "protocol_sha256": "2017018fcf60bd7d35dbb16d72f12c7a639c3c5533614aad72ee1e2ea975fbb2",
+    "random_seeds": [
+      11,
+      23,
+      47
+    ],
+    "schema_version": 1,
+    "sham": [
+      "banana",
+      "table"
+    ],
+    "top_k_logits": 20
+  },
+  "config_fingerprint": "f7473bfe8a065e47",
+  "control_construction": {
+    "cap": "||delta|| / ||h|| <= 0.10 at the edited position; target over cap => safety_excluded (all arms)",
+    "degenerate_control": "zero/non-finite direction or |cos| > 0.99 with target => control_degenerate, no replacement",
+    "random_and_sham": "norm-matched displacement: delta = -sign(h.u_c) * ||delta_target|| * u_c (NOT clean ablation)",
+    "target": "clean projection ablation along unit(J_l^T (mean U[stereo ids] - mean U[counter ids]))"
+  },
+  "counts": {
+    "evaluations_per_prompt": 16,
+    "evaluations_total": 1280,
+    "prompts": 80,
+    "stage1_evaluations": 128,
+    "stage1_prompts": 8
+  },
+  "layers": [
+    8,
+    16,
+    22
+  ],
+  "protocol_sha256": "2017018fcf60bd7d35dbb16d72f12c7a639c3c5533614aad72ee1e2ea975fbb2",
+  "random_seed_note": "unit Gaussian from torch.Generator(cpu).manual_seed(seed), same vector for every prompt and layer",
+  "random_seeds": [
+    11,
+    23,
+    47
+  ],
+  "stage_scope": {
+    "stage1": [
+      "age_01_qi1"
+    ],
+    "stage2": [
+      "age_01_qi1",
+      "age_02_qi2",
+      "age_03_qi3",
+      "age_04_qi4",
+      "age_05_qi5",
+      "age_06_qi9",
+      "age_07_qi13",
+      "age_08_qi16",
+      "age_09_qi19",
+      "age_10_qi22"
+    ]
+  }
+}
